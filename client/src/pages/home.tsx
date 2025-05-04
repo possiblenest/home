@@ -3,7 +3,6 @@ import Navbar from "@/components/navbar";
 import HeroSection from "@/components/hero-section";
 import HowItWorks from "@/components/how-it-works";
 import Benefits from "@/components/benefits";
-import Counselors from "@/components/counselors";
 import Testimonials from "@/components/testimonials";
 import Faq from "@/components/faq";
 import PrivacyGuarantee from "@/components/privacy-guarantee";
@@ -32,6 +31,35 @@ export default function Home() {
     
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
+  // Add intersection observer for advanced animation triggers
+  useEffect(() => {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const animation = el.dataset.animation || 'fade-in';
+          const delay = el.dataset.delay || '0';
+          
+          setTimeout(() => {
+            el.classList.add(animation);
+            el.style.opacity = '1';
+          }, parseInt(delay));
+          
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    
+    animatedElements.forEach(el => {
+      el.classList.add('opacity-0');
+      observer.observe(el);
+    });
+    
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="min-h-screen bg-[hsl(var(--neutral-lightest))]">
@@ -40,7 +68,6 @@ export default function Home() {
         <HeroSection />
         <HowItWorks />
         <Benefits />
-        <Counselors />
         <Testimonials />
         <Faq />
         <PrivacyGuarantee />
