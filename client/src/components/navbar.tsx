@@ -33,13 +33,11 @@ export default function Navbar() {
       )}
     >
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <Link href="/">
-          <a className="flex items-center">
-            <ShieldCheck className="h-8 w-8 text-[hsl(var(--primary))]" />
-            <h1 className="ml-2 text-xl font-bold font-heading text-[hsl(var(--primary))]">
-              PossibleNest
-            </h1>
-          </a>
+        <Link href="/" className="flex items-center">
+          <ShieldCheck className="h-8 w-8 text-[hsl(var(--primary))]" />
+          <h1 className="ml-2 text-xl font-bold font-heading text-[hsl(var(--primary))]">
+            PossibleNest
+          </h1>
         </Link>
         
         <nav className="hidden md:block">

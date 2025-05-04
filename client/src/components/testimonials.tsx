@@ -138,7 +138,7 @@ export default function Testimonials() {
     return () => clearInterval(interval);
   }, [totalPages]);
   
-  const goToPage = (pageNumber) => {
+  const goToPage = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
   
