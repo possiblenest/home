@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogClose, DialogOverlay } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { X, ShieldIcon } from "lucide-react";
 
@@ -19,13 +19,14 @@ export default function PrivacyPolicyModal({ trigger, defaultOpen = false }: Pri
         </DialogTrigger>
       ) : (
         <DialogTrigger asChild>
-          <Button variant="link" className="p-0 h-auto font-normal text-[hsl(var(--primary))] hover:text-[hsl(var(--primary-dark))] hover:underline">
+          <Button variant="link" className="p-0 h-auto font-normal text-inherit hover:underline">
             Privacy Policy
           </Button>
         </DialogTrigger>
       )}
       
-      <DialogContent className="sm:max-w-3xl max-h-[90vh] overflow-y-auto border-none shadow-xl" closeButton={false}>
+      <DialogOverlay className="bg-black/50" />
+      <DialogContent className="sm:max-w-3xl max-h-[90vh] overflow-y-auto border-none shadow-xl" onInteractOutside={(e) => e.preventDefault()}>
         <DialogHeader>
           <div className="flex items-center justify-between">
             <div className="flex items-center">
