@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700&family=Open+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  
+  /* Custom colors for PossibleNest */
+  --primary: 195 40% 45%;  /* Teal blue */
+  --primary-light: 195 40% 60%;
+  --primary-dark: 195 40% 35%;
+  
+  --secondary: 150 20% 60%;  /* Soft green */
+  --secondary-light: 150 20% 75%;
+  --secondary-dark: 150 20% 45%;
+  
+  --accent: 45 70% 57%;  /* Warm gold */
+  --accent-light: 45 70% 70%;
+  --accent-dark: 45 70% 45%;
+  
+  --neutral-lightest: 210 20% 98%;
+  --neutral-light: 210 16% 93%;
+  --neutral-medium: 215 14% 45%;
+  --neutral-dark: 215 28% 23%;
+  
+  --primary-foreground: 210 40% 98%;
+  --secondary-foreground: 215 28% 17%;
+  --accent-foreground: 20 14.3% 4.1%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 195 40% 45%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 195 40% 45%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 150 20% 60%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 45 70% 57%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 195 40% 45%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Mulish', sans-serif;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Parallax effect */
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
