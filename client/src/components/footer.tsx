@@ -1,6 +1,8 @@
 import { Link } from "wouter";
 import { ShieldCheck, Lock, Heart, MessageCircle, Globe, Mail, Shield } from "lucide-react";
 import { motion } from "framer-motion";
+import PrivacyPolicyModal from "./privacy-policy-modal";
+import TermsOfServiceModal from "./terms-of-service-modal";
 
 export default function Footer() {
   const footerLinks = [
@@ -10,8 +12,12 @@ export default function Footer() {
     { name: "Testimonials", href: "#testimonials" },
     { name: "FAQ", href: "#faq" },
     { name: "Contact", href: "#contact" },
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms of Service", href: "#" },
+  ];
+  
+  // Separate policy links that will use modal components
+  const policyLinks = [
+    { name: "Privacy Policy", component: <PrivacyPolicyModal /> },
+    { name: "Terms of Service", component: <TermsOfServiceModal /> },
   ];
 
   const features = [
@@ -117,6 +123,16 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+              
+              {/* Policy links with modals */}
+              {policyLinks.map((link, index) => (
+                <li key={`policy-${index}`}>
+                  <div className="text-white/70 hover:text-white transition-colors flex items-center cursor-pointer">
+                    <span className="text-[hsl(var(--primary-light))] mr-2">&rsaquo;</span>
+                    {link.component}
+                  </div>
+                </li>
+              ))}
             </ul>
 
             <div className="mt-6">
@@ -142,12 +158,12 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} PossibleNest. All rights reserved.
           </p>
           
-          <div className="flex items-center space-x-3">
+          <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3">
             <span className="text-white/60 text-sm flex items-center">
               <Lock className="h-3 w-3 mr-1" />
               SSL Secured
             </span>
-            <span className="mx-2 text-white/30">|</span>
+            <span className="mx-2 text-white/30 hidden sm:inline">|</span>
             <span className="text-white/60 text-sm flex items-center">
               <Shield className="h-3 w-3 mr-1" />
               HIPAA Compliant
