@@ -108,7 +108,7 @@ export default function HeroSection() {
         />
       </div>
       
-      <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 flex flex-col md:flex-row items-center justify-center md:justify-between relative z-10">
         <motion.div 
           className="md:w-1/2 mb-12 md:mb-0"
           initial={{ opacity: 0, y: 20 }}
@@ -116,7 +116,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8 }}
         >
           <motion.div 
-            className="inline-flex items-center mb-3 bg-white/70 backdrop-blur-sm px-3 py-1 rounded-full hover:bg-white/90 transition-colors cursor-pointer"
+            className="inline-flex items-center mb-3 mx-auto md:mx-0 bg-white/70 backdrop-blur-sm px-3 py-1 rounded-full hover:bg-white/90 transition-colors cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -137,7 +137,7 @@ export default function HeroSection() {
           </h1>
           
           <p className="text-lg md:text-xl mb-8 text-[hsl(var(--neutral-medium))] max-w-xl">
-            No signup – Just send a message. Connect with professional counselors anonymously for a flat ₹1000 per online session.
+            No signup – Just send a message. Connect <span className="font-semibold text-[hsl(var(--secondary-dark))]">anonymously</span> with professional counselors for a flat ₹1000 per online session.
           </p>
           
           {/* Animated features */}

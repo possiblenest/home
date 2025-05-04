@@ -55,7 +55,7 @@ export default function Navbar() {
             <li>
               <a href="#contact">
                 <Button 
-                  className="bg-[hsl(var(--primary))] text-white hover:bg-[hsl(var(--primary-dark))]"
+                  className="bg-[hsl(var(--primary))] text-white hover:bg-[hsl(var(--primary-dark))] shadow-md transition-all"
                 >
                   Get Started
                 </Button>
@@ -95,7 +95,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
               >
                 <Button 
-                  className="w-full bg-[hsl(var(--primary))] text-white hover:bg-[hsl(var(--primary-dark))]"
+                  className="w-full bg-[hsl(var(--primary))] text-white hover:bg-[hsl(var(--primary-dark))] shadow-md transition-all"
                 >
                   Get Started
                 </Button>

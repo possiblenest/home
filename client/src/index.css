@@ -17,17 +17,17 @@
   --input: 20 5.9% 90%;
   
   /* Custom colors for PossibleNest */
-  --primary: 195 40% 45%;  /* Teal blue */
-  --primary-light: 195 40% 60%;
-  --primary-dark: 195 40% 35%;
+  --primary: 200 65% 40%;  /* Deep blue */
+  --primary-light: 200 65% 55%;
+  --primary-dark: 200 65% 30%;
   
-  --secondary: 150 20% 60%;  /* Soft green */
-  --secondary-light: 150 20% 75%;
-  --secondary-dark: 150 20% 45%;
+  --secondary: 162 55% 55%;  /* Teal */
+  --secondary-light: 162 55% 70%;
+  --secondary-dark: 162 55% 40%;
   
-  --accent: 45 70% 57%;  /* Warm gold */
-  --accent-light: 45 70% 70%;
-  --accent-dark: 45 70% 45%;
+  --accent: 32 85% 55%;  /* Vibrant gold */
+  --accent-light: 32 85% 65%;
+  --accent-dark: 32 85% 45%;
   
   --neutral-lightest: 210 20% 98%;
   --neutral-light: 210 16% 93%;
@@ -252,18 +252,50 @@ html {
   box-shadow: 0 0 15px rgba(var(--primary), 0.5);
 }
 
-/* Responsive typography */
+/* Responsive typography and layout */
 @media (max-width: 768px) {
   h1 {
     font-size: calc(1.8rem + 1vw) !important;
+    text-align: center;
+    line-height: 1.2;
   }
   h2 {
     font-size: calc(1.5rem + 0.5vw) !important;
+    text-align: center;
   }
   h3 {
     font-size: calc(1.2rem + 0.3vw) !important;
   }
   p, li {
     font-size: calc(0.95rem + 0.2vw) !important;
+  }
+  
+  /* Center align hero content on mobile */
+  #hero .container > div:first-child > p,
+  #hero .container > div:first-child > div:last-child {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  /* Fix padding for better mobile spacing */
+  section {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Better spacing between elements */
+  .space-y-3 {
+    margin-top: 0.5rem;
+  }
+  
+  /* Improve form layout on mobile */
+  .space-y-5 > div {
+    margin-bottom: 1.25rem;
+  }
+  
+  /* Image container adjustments */
+  #hero .container > div:last-child {
+    margin-top: 2rem;
   }
 }
