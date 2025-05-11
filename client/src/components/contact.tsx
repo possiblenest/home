@@ -52,9 +52,9 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   
   // EmailJS credentials as inline variables
-  const EMAILJS_USER_ID = "user_aBcDeFgHiJkLmN123456"; // Replace with your actual values when deploying
-  const EMAILJS_SERVICE_ID = "service_123abc"; // Replace with your actual values when deploying
-  const EMAILJS_TEMPLATE_ID = "template_abc123"; // Replace with your actual values when deploying
+  const EMAILJS_USER_ID = "IAzaNq0GTU6P1dVMR"; // Replace with your actual values when deploying
+  const EMAILJS_SERVICE_ID = "service_v0fmzam"; // Replace with your actual values when deploying
+  const EMAILJS_TEMPLATE_ID = "template_ucqdbz6"; // Replace with your actual values when deploying
 
   // Initialize EmailJS with the User ID
   useEffect(() => {
