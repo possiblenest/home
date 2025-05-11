@@ -34,7 +34,7 @@ export default function PrivacyPolicyModal({ trigger, defaultOpen = false }: Pri
             </div>
             <DialogClose asChild>
               <Button variant="ghost" className="h-8 w-8 p-0 text-gray-500 hover:text-gray-700" aria-label="Close">
-                <X className="h-4 w-4" />
+                {/* <X className="h-4 w-4" /> */}
               </Button>
             </DialogClose>
           </div>

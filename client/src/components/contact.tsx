@@ -41,6 +41,7 @@ export default function Contact() {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [date, setDate] = useState<Date | undefined>(undefined);
   const [timeSlot, setTimeSlot] = useState("");
@@ -55,7 +56,7 @@ export default function Contact() {
   const EMAILJS_USER_ID = "IAzaNq0GTU6P1dVMR"; // Replace with your actual values when deploying
   const EMAILJS_SERVICE_ID = "service_v0fmzam"; // Replace with your actual values when deploying
   const EMAILJS_TEMPLATE_ID = "template_ucqdbz6"; // Replace with your actual values when deploying
-
+  
   // Initialize EmailJS with the User ID
   useEffect(() => {
     emailjs.init(EMAILJS_USER_ID);
@@ -72,6 +73,7 @@ export default function Contact() {
         from_name: name || "Anonymous Client",
         age_range: age,
         email: email,
+        phone: phone,
         message: message,
         session_date: date ? format(date, "PPP") : "Flexible",
         session_time: timeSlot || "Flexible",
@@ -92,6 +94,7 @@ export default function Contact() {
         setName("");
         setAge("");
         setEmail("");
+        setPhone("");
         setMessage("");
         setDate(undefined);
         setTimeSlot("");
@@ -203,20 +206,38 @@ export default function Contact() {
                 </div>
               </div>
               
-              {/* Email field */}
-              <div>
-                <Label htmlFor="email" className="block text-[hsl(var(--neutral-dark))] font-medium mb-2">
-                  Email (For session confirmation)
-                </Label>
-                <Input 
-                  id="email" 
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-[hsl(var(--neutral-lightest))] border-[hsl(var(--neutral-light))] focus:ring-2 focus:ring-[hsla(var(--primary)/0.5)] focus:border-[hsl(var(--primary))] outline-none" 
-                  placeholder="Your email address"
-                />
-                <p className="text-xs text-[hsl(var(--neutral-medium))] mt-1">Your email is only used for session confirmations and will not be shared.</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {/* Email field */}
+                <div>
+                  <Label htmlFor="email" className="block text-[hsl(var(--neutral-dark))] font-medium mb-2">
+                    Email (For session confirmation)
+                  </Label>
+                  <Input 
+                    id="email" 
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full bg-[hsl(var(--neutral-lightest))] border-[hsl(var(--neutral-light))] focus:ring-2 focus:ring-[hsla(var(--primary)/0.5)] focus:border-[hsl(var(--primary))] outline-none" 
+                    placeholder="Your email address"
+                  />
+                  <p className="text-xs text-[hsl(var(--neutral-medium))] mt-1">Your email is only used for session confirmations.</p>
+                </div>
+                
+                {/* Phone field */}
+                <div>
+                  <Label htmlFor="phone" className="block text-[hsl(var(--neutral-dark))] font-medium mb-2">
+                    Contact Number
+                  </Label>
+                  <Input 
+                    id="phone" 
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full bg-[hsl(var(--neutral-lightest))] border-[hsl(var(--neutral-light))] focus:ring-2 focus:ring-[hsla(var(--primary)/0.5)] focus:border-[hsl(var(--primary))] outline-none" 
+                    placeholder="Your phone number"
+                  />
+                  <p className="text-xs text-[hsl(var(--neutral-medium))] mt-1">For session reminders and updates only.</p>
+                </div>
               </div>
               
               {/* Date and time selection */}
